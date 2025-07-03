@@ -1,3 +1,25 @@
+# JiraRush Final Project
+
+## Выполненные задания
+
+### Подключение in-memory H2 для тестов
+- Вынесены два DataSource-конфига: для PostgreSQL (`@Profile("prod")`) и H2 (`@Profile("test")`).
+- Добавлен `application-test.yaml`.
+- SQL-скрипт `data.sql` адаптирован для H2 (упрощена структура, удалены PostgreSQL-specific элементы).
+
+### Покрытие тестами контроллера `ProfileRestController`
+- Тестируются оба публичных метода: `GET /api/profile` и `PUT /api/profile`.
+- Проверяются позитивные и негативные сценарии (успешный запрос, неавторизованный доступ, валидация данных).
+
+### Dockerfile
+- Добавлен `Dockerfile` в корень проекта для сборки Spring Boot приложения.
+
+###  Docker Compose
+- Создан `docker-compose.yml` для запуска:
+  - PostgreSQL (с параметрами из `.env`)
+  - Spring Boot сервера (`app`)
+  - NGINX (`nginx`) с конфигурацией из `config/nginx.conf`.
+
 ## [REST API](http://localhost:8080/doc)
 
 ## Концепция:
